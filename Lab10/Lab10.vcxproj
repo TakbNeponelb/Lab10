@@ -140,6 +140,7 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClCompile Include="Lab10.cpp" />
+    <ClCompile Include="Lab10Header.cpp" />
     <ClCompile Include="Lab10Unit1.cpp" />
   </ItemGroup>
   <ItemGroup>
