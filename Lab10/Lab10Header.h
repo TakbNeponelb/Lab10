@@ -24,12 +24,12 @@ struct node {
 };
 
 struct stack {
-
 	node* top;
 
 	stack() {
 		top = NULL;
 	}
+
 	void push(int x);
 	int pop();
 	bool isEmpty();
@@ -37,6 +37,6 @@ struct stack {
 };
 
 // Функция для объединения двух стеков в один
-void mergeStacks(stack& s1, stack& s2, stack& s3);
+void mergeStacks(stack* s1, stack* s2);
 
 #endif

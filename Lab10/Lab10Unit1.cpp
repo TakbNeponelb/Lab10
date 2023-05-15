@@ -38,15 +38,47 @@ void stack::displayStack() {
 };
 
 
-void mergeStacks(stack& s1, stack& s2, stack& s3) {
-	while (!s1.isEmpty() && !s2.isEmpty()) {
-		s3.push(s1.pop());
-		s3.push(s2.pop());
-	}
-	while (!s1.isEmpty()) {
-		s3.push(s1.pop());
-	}
-	while (!s2.isEmpty()) {
-		s3.push(s2.pop());
-	}
+void mergeStacks(stack* s1, stack* s2) {
+    if ((*s1).isEmpty()) {
+        s2->top = NULL;
+        s1->top = s2->top;
+        return;
+    }
+    if ((*s2).isEmpty()) {
+        return;
+    }
+    node* temp1 = s1->top;
+    node* temp2 = s2->top;
+    node* prev = NULL;
+    while (temp1 != NULL && temp2 != NULL) {
+        if (temp1->data > temp2->data) {
+            prev = temp1;
+            temp1 = temp1->next;
+        }
+        else {
+            node* next = temp2->next;
+            
+            temp2->next = temp1;
+            
+            if (prev == NULL) {
+                s1->top = temp2;
+                
+            }
+            else {
+                
+                prev->next = temp2;
+                 
+            }
+            
+            prev = temp2;
+            temp2 = next;
+            if (s2->top == NULL) {
+                s2->top = temp2;
+        }
+    }
+    if (temp1 == NULL) 
+    
+        prev->next = temp2;
+        s2->top = NULL;
+    }
 }
